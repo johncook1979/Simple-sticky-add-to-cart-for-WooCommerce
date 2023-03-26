@@ -63,3 +63,23 @@ add_action('woocommerce_before_variations_form', 'my_variation_anchor');
 function my_variation_anchor(){
 	echo '<div id="variation_select"></div>';
 }
+
+
+
+/**
+  * Enque the scripts and styles
+  *
+*/
+
+add_action( 'wp_enqueue_scripts', 'my_load_sticky_add_to_cart_scripts' );
+function my_load_sticky_add_to_cart_scripts() {
+    	wp_enqueue_script( 'sticky-add-to-cart-scripts', get_stylesheet_directory_uri() . '/scripts.js' , __FILE__ );
+}
+
+add_action( 'wp_enqueue_scripts', 'my_load_sticky_add_to_cart_styles', 15 );
+function my_load_sticky_add_to_cart_styles() {
+	wp_enqueue_style( 'sticky-add-to-cart-css', get_stylesheet_directory_uri() . '/styles.css', false, '1.0', 'all' );
+}
+
+
+
