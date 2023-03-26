@@ -12,6 +12,9 @@ function my_sticky_add_to_cart(){
 
   // conditionally display only on product pages
   if ( ! is_admin() && is_product() ) {
+
+	// if you wish to only load it on mobile you can use a conditional statement or use CSS to hide it on desktop. Conditional is below and commented out
+	// if(wp_is_mobile()):  // uncomment this line and the endif on line 51 to only load on mobile devices
     ?>
 <div id="sticky-conatiner">
 	<h5 class="title sticky-title"><?= get_the_title();?></h5>
@@ -45,6 +48,7 @@ function my_sticky_add_to_cart(){
 </div>
 
     <?php
+	// endif;	// This endif is commented out and is used to detect if the device is mobile of desktop
   }
 }
 
